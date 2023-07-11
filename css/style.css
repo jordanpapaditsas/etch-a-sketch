@@ -1,7 +1,7 @@
 @font-face {
   font-family: "CustomFont";
-  src: url(/fonts/superlegendboy-4w8y-webfont.woff);
-  src: url(/fonts/superlegendboy-4w8y-webfont.woff2);
+  src: url(../fonts/superlegendboy-4w8y-webfont.woff);
+  src: url(../fonts/superlegendboy-4w8y-webfont.woff2);
 }
 
 * {

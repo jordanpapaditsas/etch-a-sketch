@@ -1,66 +1,61 @@
-// Selectors and initialization
 const gridContainer = document.querySelector('#gridContainer');
 const colorPicker = document.querySelector('#rbgPicker');
-const clearAllBtn = document.querySelector('#clear');
 const fillAllBtn = document.querySelector('#fill');
 const eraseBtn = document.querySelector('#erase');
 const rainbowBtn = document.querySelector('#rainbow');
+const gridSizeBar = document.querySelector('#inputSize');
+const clearAllBtn = document.querySelector('#clear');
 
-const DEFAULT = 'white';
-let isRainbowBtnActive = false;
+const DEFAULT_COLOR = '#fafafa';
 
 // Creates a grid of 16 x 16
 function createGrid() {
   for (let i = 0; i < 256; i++) {
     let gridCell = document.createElement('div');
     gridCell.classList.add('cell');
+    gridCell.style.border = '1px solid lightgray';
     gridContainer.appendChild(gridCell);
   };
 };
 createGrid();
 
-// Select all cell elements
-const gridCell = document.querySelectorAll('.cell');
+// Selects the whole grid
+const gridCells = document.querySelectorAll('.cell');
 
-// Traversing through each cell and applies them the fillColor function 
-gridCell.forEach((cell) => {
-  cell.addEventListener('mouseover', () => {
-    if (!isRainbowBtnActive) {
-      fillColor(cell);
-    };
+// Choose and apply color as the current color
+colorPicker.addEventListener('input', pickColor);
+ 
+// Picks a color from the rbg color palette
+function pickColor() {
+  document.getElementById('lblColor').innerHTML = colorPicker.value;
+  gridCells.forEach((cell) => {
+    cell.removeEventListener('mouseover', applyRandomColor);
+    cell.addEventListener('mouseover', applyColor);
   });
-});
-
-//  Applies a color of the users choice
-function fillColor(cell) {
-  cell.style.backgroundColor = colorPicker.value;
 };
 
-// Displays the current color choice 
-colorPicker.addEventListener('input', () => {
-  document.getElementById('lblColor').innerHTML = colorPicker.value;
-});
+// Applying color as the current color
+function applyColor(event) {
+  event.target.style.backgroundColor = colorPicker.value;
+};
 
-//Rainbow color choice 
-rainbowBtn.addEventListener('click', () => {
-  isRainbowBtnActive = !isRainbowBtnActive;
+// Change to Rainbow color option
+rainbowBtn.addEventListener('click', changeToRainbowColor);
 
-  if (isRainbowBtnActive) {
-    gridCell.forEach((cell) => {
-      cell.removeEventListener('mouseover', fillColor);
-      cell.addEventListener('mouseover', getRainbowColor);
-    })
-  } else if (!isRainbowBtnActive) {
-    gridCell.forEach((cell) => {
-      cell.removeEventListener('mouseover', getRainbowColor);
-      cell.addEventListener('mouseover', fillColor);
-      // cell.style.backgroundColor = cell.currentColor;
-    });
-  };
-});
+function changeToRainbowColor() {
+  gridCells.forEach((cell) => {
+    cell.removeEventListener('mouseover', applyColor);
+    cell.addEventListener('mouseover', applyRandomColor);
+  });
+};
+
+function applyRandomColor(event) {
+  const randomColor = getRandomColor();
+  event.target.style.backgroundColor = randomColor;
+};
 
 // Gets a random color
-function getRainbowColor(event) {
+function getRandomColor() {
   const num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
   const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
   let color = '#';
@@ -70,25 +65,43 @@ function getRainbowColor(event) {
   for (let i = 1; i <= 6; i++) {
       let randomCol = Math.floor(Math.random() * hexColor.length);
       color  += hexColor[randomCol];    
-  }
-  event.target.style.backgroundColor = color;
+  };
+  return color;
 };
 
-// Removes color from every cell
-clearAllBtn.addEventListener('click', clearAll);
+// Changed the current color to white
+eraseBtn.addEventListener('click', eraseColor);
 
-function clearAll() {
-  gridCell.forEach(cell => {
-    cell.style.backgroundColor = DEFAULT;
-  });
+function eraseColor() {
+ gridCells.forEach((cell) => {
+  cell.removeEventListener('mouseover', applyRandomColor);
+  cell.removeEventListener('mouseover', applyColor);
+  cell.addEventListener('mouseover', applyEraseColor);
+ });
 };
 
-// Fills the whole grid of the users color choice
+function applyEraseColor(event) {
+  event.target.style.backgroundColor = DEFAULT_COLOR;
+}
+
+// Clears the whole grid and adds the default color
+clearAllBtn.addEventListener('click', clearAllGrid);
+
+function clearAllGrid() {
+  if (clearAllBtn) {
+    gridCells.forEach((cell) => {
+      cell.style.backgroundColor = DEFAULT_COLOR;
+    });
+  };
+};
+
+// Fills the whole grid with the current color
 fillAllBtn.addEventListener('click', fillAllGrid);
 
 function fillAllGrid() {
-  gridCell.forEach(cell => {
-    cell.style.backgroundColor = colorPicker.value;
-  });
+  if (fillAllBtn) {
+    gridCells.forEach((cell) => {
+      cell.style.backgroundColor = colorPicker.value;
+    });
+  };
 };
-

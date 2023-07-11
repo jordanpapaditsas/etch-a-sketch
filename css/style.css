@@ -1,0 +1,151 @@
+@font-face {
+  font-family: "CustomFont";
+  src: url(/fonts/superlegendboy-4w8y-webfont.woff);
+  src: url(/fonts/superlegendboy-4w8y-webfont.woff2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  font-family: "CustomFont", Arial, Helvetica, sans-serif;
+  background-color: #a78552;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+header p {
+  margin-top: 0.3rem;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#gridContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 48rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  margin-left: 5rem;
+}
+
+.cell {
+  border: 1px solid rgb(180, 177, 177);
+  background-color: white;
+  width: 3rem;
+  height: 2rem;
+}
+
+#panelBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#rbgPicker {
+  height: 2rem;
+  width: 4rem;
+  border-radius: 50rem;
+  border: 2px solid rgb(99, 25, 114);
+  background-color: #fcfcfc;
+  
+}
+
+#lblColor {
+  margin-top: 3rem;
+}
+
+#fill, #erase, #rainbow {
+  padding: 1rem;
+  width: 7rem;
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
+  font-family: inherit;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+#r {
+  color: red;
+}
+
+#a {
+  color: orange;
+}
+
+#i {
+  color: yellow;
+}
+
+#n {
+  color: rgb(14, 146, 14);
+}
+
+#b {
+  color: rgb(66, 66, 245);
+}
+
+#o {
+  color: rgb(139, 24, 139);
+}
+
+#w {
+  color: rgb(223, 41, 223);
+}
+
+#clear {
+  border-radius: 1rem;
+  width: 7.5rem;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: 0.8em;
+}
+
+input[type="range"]{
+    -webkit-appearance: none;
+    -moz-apperance: none;
+    border-radius: 1rem;
+    height: 0.4rem;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background-color: #000000;
+    border: 2px solid #a78552;
+    height: 1rem;
+    width: 1rem;
+}
+
+footer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}

@@ -3,9 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Etch A Sketch</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header>
+    <h1>Etch A Sketch</h1>
+    <p>Feels nostalgic yet?</p>
+  </header>
+
+  <main>
+    <div id="container">
+      <div id="panelBtn">
+        <label id="lblColor" for="rbgPicker">Color Picker</label>
+        <input id="rbgPicker" type="color">
+        <button id="fill">Fill</button>
+        <button id="erase">Erase</button>
+        <button id="rainbow"><span id="r">R</span><span id="a">a</span><span id="i">i</span><span id="n">n</span><span id="b">b</span><span id="o">o</span><span id="w">w</span></button>
+        <input id="inputSize" type="range" value="16" name="sizeGrid">
+        <label for="sizeGrid">Change size of the grid</label>
+
+        <div id="clearGrid">
+          <button id="clear">Clear All</button>
+        </div>
+      </div>
+
+      <div id="gridContainer"></div>
+    </div>
+  </main>
   
+
+  <footer>
+    <p>Copyright&copy &nbsp; Jordan Pap.</p>
+  </footer>
+  <script src="index.js"></script>
 </body>
 </html>

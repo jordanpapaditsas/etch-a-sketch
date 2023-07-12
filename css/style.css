@@ -121,6 +121,7 @@ main {
   padding: 1rem;
   font-family: inherit;
   font-size: 0.8em;
+  transition: 0.4s all ease-in-out;
 }
 
 footer p {
@@ -156,4 +157,13 @@ input[type='color']::-webkit-color-swatch {
 }
 
 
+/* Hover events */
 
+#fill:hover, #erase:hover, #rainbow:hover, #darken:hover, #rgbPicker:hover {
+  transform: scale(1.1);
+}
+
+#clear:hover {
+  transition: 0.5s all ease-in-out;
+  transform: rotate(360deg);
+}

@@ -15,8 +15,7 @@ function createGrid() {
   let cells = gridSizeBar.value;
 
   gridContainer.innerHTML = '';
-  gridCells = [];
-
+  
   for (let i = 0; i < cells * cells; i++) {
     let gridCell = document.createElement('div');
     gridCell.classList.add('cell');

@@ -190,7 +190,7 @@ function applyDarkeningEffect(event) {
   let rgbColor = `rgb(${rgbPercentValue}%, ${rgbPercentValue}%, ${rgbPercentValue}%)`;
 
   if (target) {
-    target.style['background'] = rgbColor;
+    target.style.backgroundColor = rgbColor;
   };
 };
 

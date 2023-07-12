@@ -23,12 +23,8 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 2rem;
-  margin-top: 0.5rem;
-}
-
-header p {
-  margin-top: 0.3rem;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 main {
@@ -48,11 +44,9 @@ main {
 #gridContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 48rem;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
-  margin-left: 5rem;
+  width: 50rem;
 }
 
 .cell {
@@ -65,17 +59,18 @@ main {
 #panelBtn {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
+  margin-right: 5rem;
+}
+
+#lblColor {
+  margin-top: 1rem;
 }
 
 #rgbPicker {
   height: 5rem;
   width: 5rem;
   border-radius: 1rem;
-}
-
-#lblColor {
-  margin-top: 3rem;
 }
 
 #fill, #erase, #rainbow, #darken {
@@ -86,7 +81,6 @@ main {
   border-radius: 1rem;
   font-family: inherit;
   font-size: 0.8em;
-  text-align: center;
 }
 
 #r {
@@ -133,7 +127,7 @@ footer p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 input[type="range"]{

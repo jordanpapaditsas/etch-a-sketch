@@ -165,12 +165,34 @@ function DarkeningEffect() {
   });
 };
 
-
+/**
+ *  Checks if the current grid cell has already a darkened background color with the data
+ *  percent attribute, if the data percent is not a valid number then sets
+ *  the rgbPercentValue to 100.
+ *  Then checks if the current darkness level (rgbPercentValue) is greater or equal to 10,
+ *  if it is then its decreasing the value by 10 to darken the color.
+ *  Then reassign the new value back to the data percent attribute of the target element.
+ *  Creating a new variable 'rgbColor' to pass the new background color format.
+ * @param {*} event 
+ *              triggers when the event object is triggered by an action event. 
+ */
 function applyDarkeningEffect(event) {
-  for (let i = 0; i < 10; i++) {
-    event.target.getRandomColor();
-  } 
-}
+  let target = event.target;
+  let rgbPercentValue = parseInt(target.dataset.percent);
+  if (isNaN(rgbPercentValue)) {
+    rgbPercentValue = 100;
+  };
+  if (rgbPercentValue >= 10) {
+    rgbPercentValue -= 10;
+    target.dataset.percent = rgbPercentValue;
+  };
+
+  let rgbColor = `rgb(${rgbPercentValue}%, ${rgbPercentValue}%, ${rgbPercentValue}%)`;
+
+  if (target) {
+    target.style['background'] = rgbColor;
+  };
+};
 
 
 

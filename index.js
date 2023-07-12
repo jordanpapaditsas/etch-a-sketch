@@ -6,6 +6,7 @@ const rainbowBtn = document.querySelector('#rainbow');
 const gridSizeBar = document.querySelector('#inputSize');
 const sizeValue = document.querySelector('#valueRange');
 const clearAllBtn = document.querySelector('#clear');
+const darken = document.querySelector('#darken');
 
 const DEFAULT_COLOR = '#fafafa';
 let gridCells = [];
@@ -153,8 +154,23 @@ function fillAllGrid() {
 };
 
 // Extra features
+darken.addEventListener('click', DarkeningEffect);
+
+function DarkeningEffect() {
+  gridCells.forEach((cell) => {
+    cell.removeEventListener('mouseover', applyColor);
+    cell.removeEventListener('mouseover', applyRandomColor);
+    cell.removeEventListener('mouseover', applyEraseColor);
+    cell.addEventListener('mouseover', applyDarkeningEffect);
+  });
+};
 
 
+function applyDarkeningEffect(event) {
+  for (let i = 0; i < 10; i++) {
+    event.target.getRandomColor();
+  } 
+}
 
 
 

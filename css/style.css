@@ -69,12 +69,9 @@ main {
 }
 
 #rgbPicker {
-  height: 4rem;
-  width: 4rem;
-  border-radius: 50rem;
-  border: 2px solid rgb(0, 0, 0);
-  background-color: #fcfcfc;
-  
+  height: 5rem;
+  width: 5rem;
+  border-radius: 1rem;
 }
 
 #lblColor {
@@ -160,8 +157,8 @@ input[type='color']::-webkit-color-swatch-wrapper {
 
 input[type='color']::-webkit-color-swatch {
   border: none;
-  border-radius: 10rem;
-  width: 50rem;
+  border-radius: 1rem;
+  width: 10rem;
 }
 
 

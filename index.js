@@ -4,25 +4,61 @@ const fillAllBtn = document.querySelector('#fill');
 const eraseBtn = document.querySelector('#erase');
 const rainbowBtn = document.querySelector('#rainbow');
 const gridSizeBar = document.querySelector('#inputSize');
+const sizeValue = document.querySelector('#valueRange');
 const clearAllBtn = document.querySelector('#clear');
 
 const DEFAULT_COLOR = '#fafafa';
+let gridCells = [];
 
-// Creates a grid of 16 x 16
+// Creates a grid from a users choice size
 function createGrid() {
-  for (let i = 0; i < 256; i++) {
+  let cells = gridSizeBar.value;
+
+  gridContainer.innerHTML = '';
+  gridCells = [];
+
+  for (let i = 0; i < cells * cells; i++) {
     let gridCell = document.createElement('div');
     gridCell.classList.add('cell');
     gridCell.style.border = '1px solid lightgray';
     gridContainer.appendChild(gridCell);
+    gridCells.push(gridCell);
   };
+
+  reActivateEventListeners();
 };
 createGrid();
 
-// Selects the whole grid
-const gridCells = document.querySelectorAll('.cell');
+// Sets up a grids size
+gridSizeBar.addEventListener('change', createGrid);
 
-// Choose and apply color as the current color
+gridSizeBar.addEventListener('input', (event) => {
+  const tempSizeValue = event.target.value;
+
+  sizeValue.textContent = tempSizeValue;
+});
+
+// Reactivates all event listeners after the new grid cells are created
+function reActivateEventListeners() {
+  const gridCells = document.querySelectorAll('.cell');
+
+  colorPicker.addEventListener('input', pickColor);
+
+  rainbowBtn.addEventListener('click', changeToRainbowColor);
+
+  eraseBtn.addEventListener('click', eraseColor);
+
+  clearAllBtn.addEventListener('click', clearAllGrid);
+
+  fillAllBtn.addEventListener('click', fillAllGrid);
+
+  // Attaches event listener to each grid cell
+  gridCells.forEach((cell) => {
+    cell.addEventListener('mouseover', applyColor);
+  });
+};
+
+// Chooses and applys color as the current color
 colorPicker.addEventListener('input', pickColor);
  
 // Picks a color from the rbg color palette
@@ -49,6 +85,7 @@ function changeToRainbowColor() {
   });
 };
 
+// Apply a random color as the current color
 function applyRandomColor(event) {
   const randomColor = getRandomColor();
   event.target.style.backgroundColor = randomColor;
@@ -69,7 +106,7 @@ function getRandomColor() {
   return color;
 };
 
-// Changed the current color to white
+// Changes the current color to white
 eraseBtn.addEventListener('click', eraseColor);
 
 function eraseColor() {
@@ -105,3 +142,10 @@ function fillAllGrid() {
     });
   };
 };
+
+
+
+
+
+
+

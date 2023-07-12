@@ -20,8 +20,10 @@
         <button id="fill">Fill All</button>
         <button id="erase">Erase</button>
         <button id="rainbow"><span id="r">R</span><span id="a">a</span><span id="i">i</span><span id="n">n</span><span id="b">b</span><span id="o">o</span><span id="w">w</span></button>
-        <input id="inputSize" type="range" value="16" name="sizeGrid">
-        <label for="sizeGrid">Change size of the grid</label>
+        <input id="inputSize" type="range" min="16" max="32" value="0">
+        <label id="gridSize" for="inputSize"></label>
+        <div id="valueRange">0</div>
+        <p>Size of the grid</p>
 
         <div id="clearGrid">
           <button id="clear">Clear All</button>

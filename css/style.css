@@ -51,7 +51,7 @@ main {
   width: 48rem;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-left: 5rem;
 }
 
@@ -132,7 +132,7 @@ footer p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 input[type="range"]{

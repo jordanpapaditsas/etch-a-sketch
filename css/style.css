@@ -68,7 +68,7 @@ main {
   gap: 2rem;
 }
 
-#rbgPicker {
+#rgbPicker {
   height: 4rem;
   width: 4rem;
   border-radius: 50rem;
@@ -81,7 +81,7 @@ main {
   margin-top: 3rem;
 }
 
-#fill, #erase, #rainbow {
+#fill, #erase, #rainbow, #darken {
   padding: 1rem;
   width: 7rem;
   background-color: black;
@@ -118,6 +118,10 @@ main {
 
 #w {
   color: rgb(223, 41, 223);
+}
+
+#darken {
+  text-indent: -0.4rem;
 }
 
 #clear {

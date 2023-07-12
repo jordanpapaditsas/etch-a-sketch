@@ -1,5 +1,5 @@
 const gridContainer = document.querySelector('#gridContainer');
-const colorPicker = document.querySelector('#rbgPicker');
+const colorPicker = document.querySelector('#rgbPicker');
 const fillAllBtn = document.querySelector('#fill');
 const eraseBtn = document.querySelector('#erase');
 const rainbowBtn = document.querySelector('#rainbow');
@@ -13,29 +13,38 @@ let gridCells = [];
 // Creates a grid from a users choice size
 function createGrid() {
   let cells = gridSizeBar.value;
+  let containerSize = gridContainer.offsetWidth;
+  let cellSize = containerSize / cells;
 
-  gridContainer.innerHTML = '';
-  
+  // Remove existing cells
+  gridCells.forEach((cell) => {
+    cell.remove();
+  });
+
+  // Create new cells
   for (let i = 0; i < cells * cells; i++) {
     let gridCell = document.createElement('div');
     gridCell.classList.add('cell');
     gridCell.style.border = '1px solid lightgray';
+    gridCell.style.width = `${cellSize}px`;
+    gridCell.style.height = `${cellSize}px`;
     gridContainer.appendChild(gridCell);
     gridCells.push(gridCell);
-  };
+  }
 
   reActivateEventListeners();
-};
+}
 createGrid();
 
-// Sets up a grids size
-gridSizeBar.addEventListener('change', createGrid);
-
-gridSizeBar.addEventListener('input', (event) => {
+// displays the num value of the slider
+gridSizeBar.addEventListener('change', (event) => {
   const tempSizeValue = event.target.value;
-
   sizeValue.textContent = tempSizeValue;
 });
+
+// Applying event to the slider for controlling the grid's size
+gridSizeBar.addEventListener('input', createGrid);
+
 
 // Reactivates all event listeners after the new grid cells are created
 function reActivateEventListeners() {
@@ -125,9 +134,10 @@ clearAllBtn.addEventListener('click', clearAllGrid);
 
 function clearAllGrid() {
   if (clearAllBtn) {
-    gridCells.forEach((cell) => {
-      cell.style.backgroundColor = DEFAULT_COLOR;
-    });
+    colorPicker.value = DEFAULT_COLOR;
+    gridSizeBar.value = 16;
+    sizeValue.textContent = 16;
+    createGrid();
   };
 };
 
@@ -141,6 +151,8 @@ function fillAllGrid() {
     });
   };
 };
+
+// Extra features
 
 
 

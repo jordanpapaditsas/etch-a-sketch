@@ -23,32 +23,38 @@ in your preferred web browser.
 <ul>
   <li>Color Palette:
     <ul>
-      <li>Select from a variety of predefined colors.</li>
-      <li>Choose colors for drawing and sketching.</li>
+      <li>Select from a variety of predefined colors</li>
+      <li>Choose colors for drawing and sketching</li>
     </ul>
   </li>
   <li>Fill All Button:
     <ul>
-      <li>Fill the entire canvas with the selected color.</li>
-      <li>Create a solid background or base for your drawing.</li>
+      <li>Fill the entire canvas with the selected color</li>
+      <li>Create a solid background or base for your drawing</li>
     </ul>
   </li>
   <li>Erase Button:
     <ul>
-      <li>Remove drawn elements from the canvas.</li>
-      <li>Easily correct or modify your sketches.</li>
+      <li>Remove drawn elements from the canvas</li>
+      <li>Easily correct or modify your sketches</li>
     </ul>
   </li>
   <li>Rainbow Color Button:
     <ul>
-      <li>Automatically cycle through a range of vibrant colors.</li>
-      <li>Add a dynamic and colorful effect to your drawings.</li>
+      <li>Automatically cycle through a range of vibrant colors</li>
+      <li>Add a dynamic and colorful effect to your drawings</li>
     </ul>
   </li>
   <li>Clear All Button:
     <ul>
-      <li>Reset the sketch canvas to its initial state.</li>
-      <li>Remove all drawn elements and start fresh.</li>
+      <li>Reset the sketch canvas to its initial state</li>
+      <li>Remove all drawn elements and start fresh</li>
+    </ul>
+  </li>
+    <li>Darkening button:
+    <ul>
+      <li>On each grid cell iteration, it adds a 10% black color</li>
+      <li>At 10 iterates on the same grid cell, the cell becomes total black</li>
     </ul>
   </li>
 </ul>

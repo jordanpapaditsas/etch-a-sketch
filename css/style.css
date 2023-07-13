@@ -156,9 +156,7 @@ input[type='color']::-webkit-color-swatch {
   width: 10rem;
 }
 
-
 /* Hover events */
-
 #fill:hover, #erase:hover, #rainbow:hover, #darken:hover, #rgb-picker:hover {
   transform: scale(1.1);
 }

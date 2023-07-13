@@ -1,3 +1,4 @@
+// Initializes and selects variables
 const gridContainer = document.querySelector('#grid-container');
 const colorPicker = document.querySelector('#rgb-picker');
 const fillAllBtn = document.querySelector('#fill');
@@ -17,12 +18,12 @@ function createGrid() {
   let containerSize = gridContainer.offsetWidth;
   let cellSize = containerSize / cells;
 
-  // Remove existing cells
+  // Removes existing cells
   gridCells.forEach((cell) => {
     cell.remove();
   });
 
-  // Create new cells
+  // Creates new cells and pushing them to the new array of cells
   for (let i = 0; i < cells * cells; i++) {
     let gridCell = document.createElement('div');
     gridCell.classList.add('cell');
@@ -32,18 +33,18 @@ function createGrid() {
     gridContainer.appendChild(gridCell);
     gridCells.push(gridCell);
   }
-
+  // Reactivates all event listeners after the creation of a new grid
   reActivateEventListeners();
 }
 createGrid();
 
-// displays the num value of the slider
+// Displays the value as an integer of the slider
 gridSizeBar.addEventListener('change', (event) => {
   const tempSizeValue = event.target.value;
   sizeValue.textContent = tempSizeValue;
 });
 
-// Applying event to the slider for controlling the grid's size
+// Applies an event to the slider, for controlling the grid's size
 gridSizeBar.addEventListener('input', createGrid);
 
 
@@ -53,7 +54,7 @@ function reActivateEventListeners() {
 
   colorPicker.addEventListener('input', pickColor);
 
-  rainbowBtn.addEventListener('click', changeToRainbowColor);
+  rainbowBtn.addEventListener('click', changeToRandomColor);
 
   eraseBtn.addEventListener('click', eraseColor);
 
@@ -61,16 +62,16 @@ function reActivateEventListeners() {
 
   fillAllBtn.addEventListener('click', fillAllGrid);
 
-  // Attaches event listener to each grid cell
+  // Attaches an event listener to each grid cell
   gridCells.forEach((cell) => {
     cell.addEventListener('mouseover', applyColor);
   });
 };
 
-// Chooses and applys color as the current color
+// Adds an event with the current color
 colorPicker.addEventListener('input', pickColor);
  
-// Picks a color from the rbg color palette
+// Picks a color from the rgb color palette
 function pickColor() {
   document.getElementById('lbl-color').innerHTML = colorPicker.value;
   gridCells.forEach((cell) => {
@@ -79,22 +80,23 @@ function pickColor() {
   });
 };
 
-// Applying color as the current color
+// Applies a color as the current color
 function applyColor(event) {
   event.target.style.backgroundColor = colorPicker.value;
 };
 
-// Change to Rainbow color option
-rainbowBtn.addEventListener('click', changeToRainbowColor);
+// Adds an event with the random color function
+rainbowBtn.addEventListener('click', changeToRandomColor);
 
-function changeToRainbowColor() {
+// Swaps the current color with the random color option
+function changeToRandomColor() {
   gridCells.forEach((cell) => {
     cell.removeEventListener('mouseover', applyColor);
     cell.addEventListener('mouseover', applyRandomColor);
   });
 };
 
-// Apply a random color as the current color
+// Applies a random color as the current color
 function applyRandomColor(event) {
   const randomColor = getRandomColor();
   event.target.style.backgroundColor = randomColor;
@@ -115,7 +117,7 @@ function getRandomColor() {
   return color;
 };
 
-// Changes the current color to white
+// Changes the current color to white (erasor)
 eraseBtn.addEventListener('click', eraseColor);
 
 function eraseColor() {
@@ -126,11 +128,12 @@ function eraseColor() {
  });
 };
 
+// Applies an erasor option
 function applyEraseColor(event) {
   event.target.style.backgroundColor = DEFAULT_COLOR;
 }
 
-// Clears the whole grid and adds the default color
+// Clears the whole grid, and returns everything to default
 clearAllBtn.addEventListener('click', clearAllGrid);
 
 function clearAllGrid() {

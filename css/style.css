@@ -41,7 +41,7 @@ main {
   flex-wrap: wrap;
 }
 
-#gridContainer {
+#grid-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -56,18 +56,18 @@ main {
   height: 2rem;
 }
 
-#panelBtn {
+#panel-btn {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-right: 5rem;
 }
 
-#lblColor {
+#lbl-color {
   margin-top: 1rem;
 }
 
-#rgbPicker {
+#rgb-picker {
   height: 5rem;
   width: 5rem;
   border-radius: 1rem;
@@ -159,7 +159,7 @@ input[type='color']::-webkit-color-swatch {
 
 /* Hover events */
 
-#fill:hover, #erase:hover, #rainbow:hover, #darken:hover, #rgbPicker:hover {
+#fill:hover, #erase:hover, #rainbow:hover, #darken:hover, #rgb-picker:hover {
   transform: scale(1.1);
 }
 

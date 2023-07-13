@@ -1,10 +1,10 @@
-const gridContainer = document.querySelector('#gridContainer');
-const colorPicker = document.querySelector('#rgbPicker');
+const gridContainer = document.querySelector('#grid-container');
+const colorPicker = document.querySelector('#rgb-picker');
 const fillAllBtn = document.querySelector('#fill');
 const eraseBtn = document.querySelector('#erase');
 const rainbowBtn = document.querySelector('#rainbow');
-const gridSizeBar = document.querySelector('#inputSize');
-const sizeValue = document.querySelector('#valueRange');
+const gridSizeBar = document.querySelector('#input-size');
+const sizeValue = document.querySelector('#value-range');
 const clearAllBtn = document.querySelector('#clear');
 const darken = document.querySelector('#darken');
 
@@ -72,7 +72,7 @@ colorPicker.addEventListener('input', pickColor);
  
 // Picks a color from the rbg color palette
 function pickColor() {
-  document.getElementById('lblColor').innerHTML = colorPicker.value;
+  document.getElementById('lbl-color').innerHTML = colorPicker.value;
   gridCells.forEach((cell) => {
     cell.removeEventListener('mouseover', applyRandomColor);
     cell.addEventListener('mouseover', applyColor);

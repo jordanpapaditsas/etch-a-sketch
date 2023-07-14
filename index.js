@@ -9,7 +9,8 @@ const gridSizeBar = document.querySelector('#input-size');
 const sizeValue = document.querySelector('#value-range');
 const clearAllBtn = document.querySelector('#clear');
 
-const DEFAULT_COLOR = '#fafafa';
+const DEFAULT_COLOR = '#000000';
+const ERASOR_COLOR = '#fafafa';
 let gridCells = [];
 
 // Creates a grid, and gives a size upon the user's choice via a slider
@@ -52,7 +53,7 @@ gridSizeBar.addEventListener('input', createGrid);
 function reActivateEventListeners() {
   const gridCells = document.querySelectorAll('.cell');
 
-  colorPicker.addEventListener('input', pickColor);
+  colorPicker.addEventListener('click', pickColor);
 
   rainbowBtn.addEventListener('click', changeToRandomColor);
 
@@ -69,7 +70,7 @@ function reActivateEventListeners() {
 };
 
 // Adds an event with the current color
-colorPicker.addEventListener('input', pickColor);
+colorPicker.addEventListener('click', pickColor);
  
 // Picks a color from the rgb color palette
 function pickColor() {
@@ -131,7 +132,7 @@ function changeToErasorColor() {
 
 // Applies an erasor option
 function applyErasorColor(event) {
-  event.target.style.backgroundColor = DEFAULT_COLOR;
+  event.target.style.backgroundColor = ERASOR_COLOR;
 }
 
 // Clears the whole grid, and returns everything to default

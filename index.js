@@ -1,4 +1,4 @@
-// Initializes and selects variables
+// Initializing and selecting elements
 const gridContainer = document.querySelector('#grid-container');
 const colorPicker = document.querySelector('#rgb-picker');
 const fillAllBtn = document.querySelector('#fill');
@@ -12,7 +12,7 @@ const darken = document.querySelector('#darken');
 const DEFAULT_COLOR = '#fafafa';
 let gridCells = [];
 
-// Creates a grid from a users choice size
+// Creates a grid, and gives a size upon the user's choice via a slider
 function createGrid() {
   let cells = gridSizeBar.value;
   let containerSize = gridContainer.offsetWidth;
@@ -33,13 +33,13 @@ function createGrid() {
     gridCell.style.height = `${cellSize}px`;
     gridContainer.appendChild(gridCell);
     gridCells.push(gridCell);
-  }
+  };
   // Reactivates all event listeners after the creation of a new grid
   reActivateEventListeners();
-}
+};
 createGrid();
 
-// Displays the value as an integer of the slider
+// Displays the value of the slider, as an integer 
 gridSizeBar.addEventListener('change', (event) => {
   const tempSizeValue = event.target.value;
   sizeValue.textContent = tempSizeValue;
@@ -118,7 +118,7 @@ function getRandomColor() {
   return color;
 };
 
-// Changes the current color to white (erasor)
+// Swaps the current color back to DEFAULT (white color)
 eraseBtn.addEventListener('click', eraseColor);
 
 function eraseColor() {
@@ -174,9 +174,9 @@ function DarkeningEffect() {
  *  percent attribute, if the data percent is not a valid number then sets
  *  the rgbPercentValue to 100.
  *  Then checks if the current darkness level (rgbPercentValue) is greater or equal to 10,
- *  if it is then its decreasing the value by 10 to darken the color.
- *  Then reassign the new value back to the data percent attribute of the target element.
- *  Creating a new variable 'rgbColor' to pass the new background color format.
+ *  if it is, then its decreasing the value by 10 for the purpose of darkening the color.
+ *  Then reassigns the new value back to the data percent attribute of the targeted element.
+ *  Creates a new variable 'rgbColor' to pass the new background color format.
  * @param {*} event 
  *              triggers when the event object is triggered by an action event. 
  */

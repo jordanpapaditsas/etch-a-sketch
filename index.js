@@ -4,10 +4,10 @@ const colorPicker = document.querySelector('#rgb-picker');
 const fillAllBtn = document.querySelector('#fill');
 const eraseBtn = document.querySelector('#erase');
 const rainbowBtn = document.querySelector('#rainbow');
+const darkenBtn = document.querySelector('#darken');
 const gridSizeBar = document.querySelector('#input-size');
 const sizeValue = document.querySelector('#value-range');
 const clearAllBtn = document.querySelector('#clear');
-const darken = document.querySelector('#darken');
 
 const DEFAULT_COLOR = '#fafafa';
 let gridCells = [];
@@ -27,8 +27,7 @@ function createGrid() {
   for (let i = 0; i < cells * cells; i++) {
     let gridCell = document.createElement('div');
     gridCell.classList.add('cell');
-    gridCell.style.border = '1px solid lightgray';
-    gridCell.style.backgroundColor = 'white';
+    gridCell.style.cssText = 'border: 1px solid lightgray; background-color: white;';
     gridCell.style.width = `${cellSize}px`;
     gridCell.style.height = `${cellSize}px`;
     gridContainer.appendChild(gridCell);
@@ -57,7 +56,7 @@ function reActivateEventListeners() {
 
   rainbowBtn.addEventListener('click', changeToRandomColor);
 
-  eraseBtn.addEventListener('click', eraseColor);
+  eraseBtn.addEventListener('click', changeToErasorColor);
 
   clearAllBtn.addEventListener('click', clearAllGrid);
 
@@ -119,18 +118,19 @@ function getRandomColor() {
 };
 
 // Swaps the current color back to DEFAULT (white color)
-eraseBtn.addEventListener('click', eraseColor);
+eraseBtn.addEventListener('click', changeToErasorColor);
 
-function eraseColor() {
+function changeToErasorColor() {
  gridCells.forEach((cell) => {
   cell.removeEventListener('mouseover', applyRandomColor);
   cell.removeEventListener('mouseover', applyColor);
-  cell.addEventListener('mouseover', applyEraseColor);
+  cell.removeEventListener('mouseover', applyDarkeningEffect)
+  cell.addEventListener('mouseover', applyErasorColor);
  });
 };
 
 // Applies an erasor option
-function applyEraseColor(event) {
+function applyErasorColor(event) {
   event.target.style.backgroundColor = DEFAULT_COLOR;
 }
 
@@ -158,14 +158,14 @@ function fillAllGrid() {
 };
 
 // Extra features
-darken.addEventListener('click', DarkeningEffect);
+darken.addEventListener('click', applyDarkeningEffect);
 
-function DarkeningEffect() {
+function applyDarkeningEffect() {
   gridCells.forEach((cell) => {
     cell.removeEventListener('mouseover', applyColor);
     cell.removeEventListener('mouseover', applyRandomColor);
-    cell.removeEventListener('mouseover', applyEraseColor);
-    cell.addEventListener('mouseover', applyDarkeningEffect);
+    cell.removeEventListener('mouseover', applyErasorColor);
+    cell.addEventListener('mouseover', getDarkeningEffect);
   });
 };
 
@@ -180,7 +180,7 @@ function DarkeningEffect() {
  * @param {*} event 
  *              triggers when the event object is triggered by an action event. 
  */
-function applyDarkeningEffect(event) {
+function getDarkeningEffect(event) {
   let target = event.target;
   let rgbPercentValue = parseInt(target.dataset.percent);
   if (isNaN(rgbPercentValue)) {

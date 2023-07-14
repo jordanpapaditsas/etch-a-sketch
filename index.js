@@ -28,6 +28,7 @@ function createGrid() {
     let gridCell = document.createElement('div');
     gridCell.classList.add('cell');
     gridCell.style.border = '1px solid lightgray';
+    gridCell.style.backgroundColor = 'white';
     gridCell.style.width = `${cellSize}px`;
     gridCell.style.height = `${cellSize}px`;
     gridContainer.appendChild(gridCell);

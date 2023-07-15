@@ -25,9 +25,10 @@ in your preferred web browser.
     <ul>
       <li>Select from a variety of predefined colors</li>
       <li>Choose colors for drawing and sketching</li>
+      <li>Provides a default black color</li>
     </ul>
   </li>
-  <li>Fill All Button:
+  <li>Fill Whole Button:
     <ul>
       <li>Fill the entire canvas with the selected color</li>
       <li>Create a solid background or base for your drawing</li>
@@ -45,7 +46,7 @@ in your preferred web browser.
       <li>Add a dynamic and colorful effect to your drawings</li>
     </ul>
   </li>
-  <li>Clear All Button:
+  <li>Reset All Button:
     <ul>
       <li>Reset the sketch canvas to its initial state</li>
       <li>Remove all drawn elements and start fresh</li>
@@ -54,7 +55,7 @@ in your preferred web browser.
     <li>Darkening button:
     <ul>
       <li>On each grid cell iteration, it adds a 10% black color</li>
-      <li>At 10 iterates on the same grid cell, the cell becomes total black</li>
+      <li>At 10 iterations on the same grid cell, the cell receives a black color</li>
     </ul>
   </li>
 </ul>

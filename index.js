@@ -118,7 +118,7 @@ function getRandomColor() {
   return color;
 };
 
-// Swaps the current color back to DEFAULT (white color)
+// Swaps the current color to ERASOR_COLOR (white color)
 eraseBtn.addEventListener('click', changeToErasorColor);
 
 function changeToErasorColor() {

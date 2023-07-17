@@ -1,13 +1,14 @@
 // Initializing and selecting elements
 const gridContainer = document.querySelector('#grid-container');
 const colorPicker = document.querySelector('#rgb-picker');
+const labelColor = document.querySelector('#lbl-color');
 const fillWholeBtn = document.querySelector('#fill');
 const eraseBtn = document.querySelector('#erase');
 const rainbowBtn = document.querySelector('#rainbow');
 const darkenBtn = document.querySelector('#darken');
 const gridSizeBar = document.querySelector('#input-size');
-const sizeValue = document.querySelector('#value-range');
-const clearAllBtn = document.querySelector('#clear');
+const sizeValue = document.querySelector('#grid-size');
+const resetAllBtn = document.querySelector('#clear');
 
 const DEFAULT_COLOR = '#000000';
 const ERASOR_COLOR = '#fafafa';
@@ -34,23 +35,13 @@ function createGrid() {
     gridContainer.appendChild(gridCell);
     gridCells.push(gridCell);
   };
-  // Reactivates all event listeners after the creation of a new grid
-  reActivateEventListeners();
+
+  reactivateEventListeners();
 };
 createGrid();
 
-// Displays the value of the slider, as an integer 
-gridSizeBar.addEventListener('change', (event) => {
-  const tempSizeValue = event.target.value;
-  sizeValue.textContent = tempSizeValue;
-});
-
-// Applies an event to the slider, for controlling the grid's size
-gridSizeBar.addEventListener('input', createGrid);
-
-
 // Reactivates all event listeners after the new grid cells are created
-function reActivateEventListeners() {
+function reactivateEventListeners() {
   const gridCells = document.querySelectorAll('.cell');
 
   colorPicker.addEventListener('click', pickColor);
@@ -59,19 +50,31 @@ function reActivateEventListeners() {
 
   eraseBtn.addEventListener('click', changeToErasorColor);
 
-  clearAllBtn.addEventListener('click', clearAllGrid);
+  resetAllBtn.addEventListener('click', resetAllGrid);
 
   fillWholeBtn.addEventListener('click', fillWholeGrid);
 
-  // Attaches an event listener to each grid cell
+  // Attach an event listener to each grid cell
   gridCells.forEach((cell) => {
     cell.addEventListener('mouseover', applyColor);
   });
 };
 
+// Displays the value of the slider, as an integer 
+gridSizeBar.addEventListener('input', (event) => {
+  const tempSizeValue = event.target.value;
+  sizeValue.textContent = tempSizeValue;
+});
+
+// Applies an event to the slider, for controlling the grid's size
+gridSizeBar.addEventListener('input', createGrid);
+
 // Adds an event with the current color
-colorPicker.addEventListener('click', pickColor);
- 
+colorPicker.addEventListener('mouseover', pickColor);
+
+// Adds an event to update the color code text dynamically
+colorPicker.addEventListener('input', updateColorLabel);
+
 // Picks a color from the rgb color palette
 function pickColor() {
   document.getElementById('lbl-color').innerHTML = colorPicker.value;
@@ -84,6 +87,11 @@ function pickColor() {
 // Applies a color as the current color
 function applyColor(event) {
   event.target.style.backgroundColor = colorPicker.value;
+};
+
+// Updates the color code text dynamically
+function updateColorLabel() {
+  labelColor.textContent = colorPicker.value;
 };
 
 // Adds an event with the random color function
@@ -136,11 +144,12 @@ function applyErasorColor(event) {
 }
 
 // Clears the whole grid, and returns everything to default
-clearAllBtn.addEventListener('click', clearAllGrid);
+resetAllBtn.addEventListener('click', resetAllGrid);
 
-function clearAllGrid() {
-  if (clearAllBtn) {
+function resetAllGrid() {
+  if (resetAllBtn) {
     colorPicker.value = DEFAULT_COLOR;
+    labelColor.textContent = 'Color Picker';
     gridSizeBar.value = 16;
     sizeValue.textContent = 16;
     createGrid();

@@ -1,7 +1,7 @@
 // Initializing and selecting elements
 const gridContainer = document.querySelector('#grid-container');
 const colorPicker = document.querySelector('#rgb-picker');
-const fillAllBtn = document.querySelector('#fill');
+const fillWholeBtn = document.querySelector('#fill');
 const eraseBtn = document.querySelector('#erase');
 const rainbowBtn = document.querySelector('#rainbow');
 const darkenBtn = document.querySelector('#darken');
@@ -61,7 +61,7 @@ function reActivateEventListeners() {
 
   clearAllBtn.addEventListener('click', clearAllGrid);
 
-  fillAllBtn.addEventListener('click', fillAllGrid);
+  fillWholeBtn.addEventListener('click', fillWholeGrid);
 
   // Attaches an event listener to each grid cell
   gridCells.forEach((cell) => {
@@ -148,10 +148,10 @@ function clearAllGrid() {
 };
 
 // Fills the whole grid with the current color
-fillAllBtn.addEventListener('click', fillAllGrid);
+fillWholeBtn.addEventListener('click', fillWholeGrid);
 
-function fillAllGrid() {
-  if (fillAllBtn) {
+function fillWholeGrid() {
+  if (fillWholeBtn) {
     gridCells.forEach((cell) => {
       cell.style.backgroundColor = colorPicker.value;
     });

@@ -1,4 +1,4 @@
-// Initializing and selecting elements
+// Initializing variables and selecting elements
 const gridContainer = document.querySelector('#grid-container');
 const colorPicker = document.querySelector('#rgb-picker');
 const labelColor = document.querySelector('#lbl-color');
@@ -13,6 +13,19 @@ const resetAllBtn = document.querySelector('#clear');
 const DEFAULT_COLOR = '#000000';
 const ERASOR_COLOR = '#fafafa';
 let gridCells = [];
+
+//  Event Listeners
+colorPicker.addEventListener('mouseover', pickColor);
+colorPicker.addEventListener('input', updateColorLabel);
+fillWholeBtn.addEventListener('click', fillWholeGrid);
+eraseBtn.addEventListener('click', changeToErasorColor);
+rainbowBtn.addEventListener('click', changeToRandomColor);
+darkenBtn.addEventListener('click', applyDarkeningEffect);
+gridSizeBar.addEventListener('input', createGrid);
+gridSizeBar.addEventListener('input', (event) => {
+  const tempSizeValue = event.target.value;
+  sizeValue.textContent = tempSizeValue;
+});
 
 // Creates a grid, and gives a size upon the user's choice via a slider
 function createGrid() {
@@ -54,26 +67,11 @@ function reactivateEventListeners() {
 
   fillWholeBtn.addEventListener('click', fillWholeGrid);
 
-  // Attach an event listener to each grid cell
+  // Attach the default color to each grid cell after reset -->  User friendly feature
   gridCells.forEach((cell) => {
     cell.addEventListener('mouseover', applyColor);
   });
 };
-
-// Displays the value of the slider, as an integer 
-gridSizeBar.addEventListener('input', (event) => {
-  const tempSizeValue = event.target.value;
-  sizeValue.textContent = tempSizeValue;
-});
-
-// Applies an event to the slider, for controlling the grid's size
-gridSizeBar.addEventListener('input', createGrid);
-
-// Adds an event with the current color
-colorPicker.addEventListener('mouseover', pickColor);
-
-// Adds an event to update the color code text dynamically
-colorPicker.addEventListener('input', updateColorLabel);
 
 // Picks a color from the rgb color palette
 function pickColor() {
@@ -94,8 +92,29 @@ function updateColorLabel() {
   labelColor.textContent = colorPicker.value;
 };
 
-// Adds an event with the random color function
-rainbowBtn.addEventListener('click', changeToRandomColor);
+// Fills the whole grid with the current color
+function fillWholeGrid() {
+  if (fillWholeBtn) {
+    gridCells.forEach((cell) => {
+      cell.style.backgroundColor = colorPicker.value;
+    });
+  };
+};
+
+//  Changes to the erasor option
+function changeToErasorColor() {
+  gridCells.forEach((cell) => {
+   cell.removeEventListener('mouseover', applyRandomColor);
+   cell.removeEventListener('mouseover', applyColor);
+   cell.removeEventListener('mouseover', applyDarkeningEffect)
+   cell.addEventListener('mouseover', applyErasorColor);
+  });
+ };
+ 
+ // Applies an erasor color
+ function applyErasorColor(event) {
+   event.target.style.backgroundColor = ERASOR_COLOR;
+ };
 
 // Swaps the current color with the random color option
 function changeToRandomColor() {
@@ -126,50 +145,7 @@ function getRandomColor() {
   return color;
 };
 
-// Swaps the current color to ERASOR_COLOR (white color)
-eraseBtn.addEventListener('click', changeToErasorColor);
-
-function changeToErasorColor() {
- gridCells.forEach((cell) => {
-  cell.removeEventListener('mouseover', applyRandomColor);
-  cell.removeEventListener('mouseover', applyColor);
-  cell.removeEventListener('mouseover', applyDarkeningEffect)
-  cell.addEventListener('mouseover', applyErasorColor);
- });
-};
-
-// Applies an erasor option
-function applyErasorColor(event) {
-  event.target.style.backgroundColor = ERASOR_COLOR;
-}
-
-// Clears the whole grid, and returns everything to default
-resetAllBtn.addEventListener('click', resetAllGrid);
-
-function resetAllGrid() {
-  if (resetAllBtn) {
-    colorPicker.value = DEFAULT_COLOR;
-    labelColor.textContent = 'Color Picker';
-    gridSizeBar.value = 16;
-    sizeValue.textContent = 16;
-    createGrid();
-  };
-};
-
-// Fills the whole grid with the current color
-fillWholeBtn.addEventListener('click', fillWholeGrid);
-
-function fillWholeGrid() {
-  if (fillWholeBtn) {
-    gridCells.forEach((cell) => {
-      cell.style.backgroundColor = colorPicker.value;
-    });
-  };
-};
-
-// Extra features
-darken.addEventListener('click', applyDarkeningEffect);
-
+//  Applies the darkening effect option
 function applyDarkeningEffect() {
   gridCells.forEach((cell) => {
     cell.removeEventListener('mouseover', applyColor);
@@ -207,6 +183,25 @@ function getDarkeningEffect(event) {
     target.style.backgroundColor = rgbColor;
   };
 };
+
+// Resets the whole grid to its original state
+function resetAllGrid() {
+  if (resetAllBtn) {
+    colorPicker.value = DEFAULT_COLOR;
+    labelColor.textContent = 'Color Picker';
+    gridSizeBar.value = 16;
+    sizeValue.textContent = 16;
+    createGrid();
+  };
+};
+
+
+
+
+
+
+
+
 
 
 

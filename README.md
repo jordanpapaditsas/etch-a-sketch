@@ -23,39 +23,39 @@ in your preferred web browser.
 <ul>
    <li>Grid size adjustment:
     <ul>
-      <li>Provides a slider to change dynamically the size of the grid</li>
-      <li>Cleans the grid cells after changing the size</li>
-      <li>Provides a maximum of 64x64 grid cells</li>
+      <li>Provides a slider to dynamically change the size of the grid</li>
+      <li>Clears the grid cells after changing the size</li>
+      <li>Provides a maximum grid size of 64x64 cells</li>
     </ul>
   <li>Color palette:
     <ul>
-      <li>Select from a variety of predefined colors</li>
-      <li>Choose colors for drawing and sketching</li>
+      <li>Offers a variety of predefined colors to choose from</li>
+      <li>Enables users to select colors for drawing and sketching</li>
       <li>Provides a default black color</li>
     </ul>
   </li>
   <li>Fill Whole button:
     <ul>
-      <li>Fill the entire canvas with the selected color</li>
-      <li>Create a solid background or base for your drawing</li>
+      <li>Fills the entire canvas with the selected color</li>
+      <li>Creates a solid background or base for your drawing</li>
     </ul>
   </li>
   <li>Erase button:
     <ul>
-      <li>Remove drawn elements from the canvas</li>
+      <li>Removes drawn elements from the canvas</li>
       <li>Easily correct or modify your sketches</li>
     </ul>
   </li>
   <li>Rainbow color button:
     <ul>
-      <li>Automatically cycle through a range of vibrant colors</li>
-      <li>Add a dynamic and colorful effect to your drawings</li>
+      <li>Automatically cycles through a range of random colors</li>
+      <li>Adds a dynamic and colorful effect to your drawings</li>
     </ul>
   </li>
   <li>Reset All button:
     <ul>
-      <li>Reset the sketch canvas to its initial state</li>
-      <li>Remove all drawn elements and start fresh</li>
+      <li>Resets the sketch canvas to its initial state</li>
+      <li>Removes all drawn elements, allowing you to start fresh</li>
     </ul>
   </li>
     <li>Darkening button:

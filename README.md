@@ -23,8 +23,8 @@ in your preferred web browser.
 <ul>
    <li>Grid size adjustment:
     <ul>
-      <li>Slider for dynamically change the size of the grid</li>
-      <li>Cleans grid after changing the size</li>
+      <li>Provides a slider to change dynamically the size of the grid</li>
+      <li>Cleans the grid cells after changing the size</li>
       <li>Provides a maximum of 64x64 grid cells</li>
     </ul>
   <li>Color palette:

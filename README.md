@@ -21,32 +21,38 @@ in your preferred web browser.
 
 ## Features
 <ul>
-  <li>Color Palette:
+   <li>Grid size adjustment:
+    <ul>
+      <li>Slider for dynamically change the size of the grid</li>
+      <li>Cleans grid after changing the size</li>
+      <li>Provides a maximum of 64x64 grid cells</li>
+    </ul>
+  <li>Color palette:
     <ul>
       <li>Select from a variety of predefined colors</li>
       <li>Choose colors for drawing and sketching</li>
       <li>Provides a default black color</li>
     </ul>
   </li>
-  <li>Fill Whole Button:
+  <li>Fill Whole button:
     <ul>
       <li>Fill the entire canvas with the selected color</li>
       <li>Create a solid background or base for your drawing</li>
     </ul>
   </li>
-  <li>Erase Button:
+  <li>Erase button:
     <ul>
       <li>Remove drawn elements from the canvas</li>
       <li>Easily correct or modify your sketches</li>
     </ul>
   </li>
-  <li>Rainbow Color Button:
+  <li>Rainbow color button:
     <ul>
       <li>Automatically cycle through a range of vibrant colors</li>
       <li>Add a dynamic and colorful effect to your drawings</li>
     </ul>
   </li>
-  <li>Reset All Button:
+  <li>Reset All button:
     <ul>
       <li>Reset the sketch canvas to its initial state</li>
       <li>Remove all drawn elements and start fresh</li>

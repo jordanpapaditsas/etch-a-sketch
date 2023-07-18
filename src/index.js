@@ -47,10 +47,10 @@ function createGrid() {
     gridCell.style.height = `${cellSize}px`;
     gridContainer.appendChild(gridCell);
     gridCells.push(gridCell);
-  };
+  }
 
   reactivateEventListeners();
-};
+}
 createGrid();
 
 // Reactivates all event listeners after the new grid cells are created
@@ -71,7 +71,7 @@ function reactivateEventListeners() {
   gridCells.forEach((cell) => {
     cell.addEventListener('mouseover', applyColor);
   });
-};
+}
 
 // Picks a color from the rgb color palette
 function pickColor() {
@@ -80,17 +80,17 @@ function pickColor() {
     cell.removeEventListener('mouseover', applyRandomColor);
     cell.addEventListener('mouseover', applyColor);
   });
-};
+}
 
 // Applies a color as the current color
 function applyColor(event) {
   event.target.style.backgroundColor = colorPicker.value;
-};
+}
 
 // Updates the color code text dynamically
 function updateColorLabel() {
   labelColor.textContent = colorPicker.value;
-};
+}
 
 // Fills the whole grid with the current color
 function fillWholeGrid() {
@@ -98,8 +98,8 @@ function fillWholeGrid() {
     gridCells.forEach((cell) => {
       cell.style.backgroundColor = colorPicker.value;
     });
-  };
-};
+  }
+}
 
 //  Changes to the erasor option
 function changeToErasorColor() {
@@ -109,12 +109,12 @@ function changeToErasorColor() {
    cell.removeEventListener('mouseover', applyDarkeningEffect)
    cell.addEventListener('mouseover', applyErasorColor);
   });
- };
+ }
  
  // Applies an erasor color
  function applyErasorColor(event) {
    event.target.style.backgroundColor = ERASOR_COLOR;
- };
+ }
 
 // Swaps the current color with the random color option
 function changeToRandomColor() {
@@ -122,13 +122,13 @@ function changeToRandomColor() {
     cell.removeEventListener('mouseover', applyColor);
     cell.addEventListener('mouseover', applyRandomColor);
   });
-};
+}
 
 // Applies a random color as the current color
 function applyRandomColor(event) {
   const randomColor = getRandomColor();
   event.target.style.backgroundColor = randomColor;
-};
+}
 
 // Gets a random color
 function getRandomColor() {
@@ -141,9 +141,9 @@ function getRandomColor() {
   for (let i = 1; i <= 6; i++) {
       let randomCol = Math.floor(Math.random() * hexColor.length);
       color  += hexColor[randomCol];    
-  };
+  }
   return color;
-};
+}
 
 //  Applies the darkening effect option
 function applyDarkeningEffect() {
@@ -153,7 +153,7 @@ function applyDarkeningEffect() {
     cell.removeEventListener('mouseover', applyErasorColor);
     cell.addEventListener('mouseover', getDarkeningEffect);
   });
-};
+}
 
 /**
  *  Checks if the current grid cell has already a darkened background color with the data
@@ -171,18 +171,18 @@ function getDarkeningEffect(event) {
   let rgbPercentValue = parseInt(target.dataset.percent);
   if (isNaN(rgbPercentValue)) {
     rgbPercentValue = 100;
-  };
+  }
   if (rgbPercentValue >= 10) {
     rgbPercentValue -= 10;
     target.dataset.percent = rgbPercentValue;
-  };
+  }
 
   let rgbColor = `rgb(${rgbPercentValue}%, ${rgbPercentValue}%, ${rgbPercentValue}%)`;
 
   if (target) {
     target.style.backgroundColor = rgbColor;
-  };
-};
+  }
+}
 
 // Resets the whole grid to its original state
 function resetAllGrid() {
@@ -192,8 +192,8 @@ function resetAllGrid() {
     gridSizeBar.value = 16;
     sizeValue.textContent = 16;
     createGrid();
-  };
-};
+  }
+}
 
 
 

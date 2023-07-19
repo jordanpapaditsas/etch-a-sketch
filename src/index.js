@@ -27,18 +27,15 @@ gridSizeBar.addEventListener('input', (event) => {
   sizeValue.textContent = tempSizeValue;
 });
 
-// Creates a grid, and gives a size upon the user's choice via a slider
 function createGrid() {
   let cells = gridSizeBar.value;
   let containerSize = gridContainer.offsetWidth;
   let cellSize = containerSize / cells;
 
-  // Removes existing cells
   gridCells.forEach((cell) => {
     cell.remove();
   });
 
-  // Creates new cells and pushing them to the new array of cells
   for (let i = 0; i < cells * cells; i++) {
     let gridCell = document.createElement('div');
     gridCell.classList.add('cell');
@@ -73,7 +70,6 @@ function reactivateEventListeners() {
   });
 }
 
-// Picks a color from the rgb color palette
 function pickColor() {
   document.getElementById('lbl-color').innerHTML = colorPicker.value;
   gridCells.forEach((cell) => {
@@ -82,7 +78,6 @@ function pickColor() {
   });
 }
 
-// Applies a color as the current color
 function applyColor(event) {
   event.target.style.backgroundColor = colorPicker.value;
 }
@@ -92,7 +87,6 @@ function updateColorLabel() {
   labelColor.textContent = colorPicker.value;
 }
 
-// Fills the whole grid with the current color
 function fillWholeGrid() {
   if (fillWholeBtn) {
     gridCells.forEach((cell) => {
@@ -101,7 +95,6 @@ function fillWholeGrid() {
   }
 }
 
-//  Changes to the erasor option
 function changeToErasorColor() {
   gridCells.forEach((cell) => {
    cell.removeEventListener('mouseover', applyRandomColor);
@@ -111,7 +104,6 @@ function changeToErasorColor() {
   });
  }
  
- // Applies an erasor color
  function applyErasorColor(event) {
    event.target.style.backgroundColor = ERASOR_COLOR;
  }
@@ -124,13 +116,11 @@ function changeToRandomColor() {
   });
 }
 
-// Applies a random color as the current color
 function applyRandomColor(event) {
   const randomColor = getRandomColor();
   event.target.style.backgroundColor = randomColor;
 }
 
-// Gets a random color
 function getRandomColor() {
   const num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
   const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -184,7 +174,6 @@ function getDarkeningEffect(event) {
   }
 }
 
-// Resets the whole grid to its original state
 function resetAllGrid() {
   if (resetAllBtn) {
     colorPicker.value = DEFAULT_COLOR;

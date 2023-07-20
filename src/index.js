@@ -82,7 +82,7 @@ function applyColor(event) {
   event.target.style.backgroundColor = colorPicker.value;
 }
 
-// Updates the color code text dynamically
+// Updates the code text of the color dynamically
 function updateColorLabel() {
   labelColor.textContent = colorPicker.value;
 }
@@ -135,7 +135,6 @@ function getRandomColor() {
   return color;
 }
 
-//  Applies the darkening effect option
 function applyDarkeningEffect() {
   gridCells.forEach((cell) => {
     cell.removeEventListener('mouseover', applyColor);

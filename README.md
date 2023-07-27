@@ -1,6 +1,6 @@
 # Etch-A-Sketch
 ## Description
-Etch-a-Sketch App is a simple web-based application made in **RETRO** style, that allows users to draw and sketch using a virtual etch-a-sketch. The app provides various features, including a color palette, a fill whole button, an erase button, a rainbow color button, a reset all button, and a darkening effect button.  
+Etch-a-Sketch App is a Web-based application made in **RETRO** style, that allows users to draw and sketch using a virtual etch-a-sketch. The app provides various features, including a color palette, a fill whole button, an erase button, a rainbow color button, a reset all button, and a darkening effect button.  
 
 ## Live Preview
 **https://jordanpapaditsas.github.io/etch-a-sketch/**

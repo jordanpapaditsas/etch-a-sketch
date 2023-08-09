@@ -61,7 +61,7 @@ Etch-a-Sketch App is a Web-based application made in **RETRO** style, that allow
 
 ## Getting Started
 
-Follow these steps to get the dashboard up and running on your local machine:
+Follow these steps to get the application up and running on your local machine:
 
 1. Clone this repository: `git clone https://github.com/your-username/etch-a-sketch.git`
 2. Open the `index.html` file in your preferred web browser.

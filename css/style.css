@@ -10,6 +10,10 @@
   padding: 0;
 }
 
+i {
+  transition: 0.1s all ease-in-out;
+}
+
 body, html {
   font-family: "CustomFont", Arial, Helvetica, sans-serif;
   background-color: #a78552;
@@ -166,6 +170,11 @@ input[type='range']::-webkit-slider-thumb {
 #clear:hover {
   transition: 0.5s all ease-in-out;
   transform: rotate(360deg);
+}
+
+i:hover {
+  transition: 0.1s all ease-in-out;
+  transform: scale(1.2);
 }
 
 /* Large screens */

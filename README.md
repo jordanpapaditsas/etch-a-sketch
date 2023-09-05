@@ -1,8 +1,9 @@
 # Etch-A-Sketch
 ## Description
-Etch-a-Sketch App is a simple web-based application made in **RETRO** style, that allows users to draw and sketch using a virtual etch-a-sketch. The app provides various features, including a color palette, a fill whole button, an erase button, a rainbow color button, a reset all button, and a darkening effect button.  
+Etch-a-Sketch App is a Web-based application made in **RETRO** style, that allows users to draw and sketch using a virtual etch-a-sketch. The app provides various features, including a color palette, a fill whole button, an erase button, a rainbow color button, a reset all button, and a darkening effect button.  
 
 ## Live Preview
+**https://etch-a-sketch-five-sand.vercel.app/**  
 **https://jordanpapaditsas.github.io/etch-a-sketch/**
 
 ## Tech-Stack
@@ -11,20 +12,6 @@ Etch-a-Sketch App is a simple web-based application made in **RETRO** style, tha
    <li>HTML</li>
    <li>CSS</li>
 </ul>
-
-## Installation
-
-1. Clone the repository:
-
-   ```bash
-    git clone https://github.com/jordanpapaditsas/etch-a-sketch.git
-   ```
-2. Navigate to the project's folder
-   ```bash
-   cd etch-a-sketch 
-   ```
-3. After navigating to the project's folder, you can run the application by opening the index.html file  
-in your preferred web browser.
 
 ## Features
 <ul>
@@ -72,3 +59,26 @@ in your preferred web browser.
     </ul>
   </li>
 </ul>
+
+## Getting Started
+
+Follow these steps to get the application up and running on your local machine:
+
+1. Clone this repository: `git clone https://github.com/your-username/etch-a-sketch.git`
+2. Open the `index.html` file in your preferred web browser.
+3. Explore the mechanism of the application.
+4. Customize the content to fit your application's needs.
+
+## Contributing
+
+All contributions are welcomed! If you'd like to contribute, please follow these steps:
+
+1. Fork this repository to your GitHub account.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature/your-feature-name`
+3. Make your changes and commit them with descriptive commit messages.
+4. Push your changes to your forked repository.
+5. Create a pull request to the `main` branch of this repository, describing your changes.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
